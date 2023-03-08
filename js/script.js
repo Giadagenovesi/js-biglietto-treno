@@ -2,8 +2,8 @@
 
 //INPUT E DICHIARAZIONE DEI DATI
 const kmPrice = 0.21;
-const juniorDiscount = 0.20;
-const seniorDiscount = 0.40;
+const juniorDiscount = 0.80;
+const seniorDiscount = 0.60;
 
 
 // Chiedere all'utente il numero di kilometri che vuole percorrere
@@ -21,27 +21,14 @@ console.log(userAge, typeof userAge);
 
 let ticketPrice = "";
 if (userAge < 18) {
-     ticketPrice = kmNumber * kmPrice - juniorDiscount;
+     ticketPrice = (kmNumber * kmPrice * juniorDiscount).toFixed (2);
 } else if (userAge > 65) {
-        ticketPrice = kmNumber * kmPrice - seniorDiscount;
+        ticketPrice = (kmNumber * kmPrice * seniorDiscount).toFixed (2);
 } else {
-     ticketPrice = kmNumber * kmPrice;
+     ticketPrice = (kmNumber * kmPrice).toFixed (2);
 }
 console.log(ticketPrice);
 
 
-// const ticketPrice = kmNumber * kmPrice;
-//  console.log(ticketPrice);
-
-//sconto Junior
-// const juniorDiscount = ticketPrice * 0.20;
-// console.log(juniorDiscount);
-
-//sconto Senior
-// const seniorDiscount = ticketPrice * 0.40;
-// console.log(seniorDiscount);
-
-
-
-// 
-
+// OUTPUT
+document.getElementById('my-price').innerHTML += ticketPrice;
